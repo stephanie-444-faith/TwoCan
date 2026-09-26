@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Two Can is a youth-run can drive. Bring two cans to a meetup, hang out with friends, and we deliver everything to the local food bank.">
-<title>Two Can</title>
-<link rel="icon" href="images/toucan.svg" type="image/svg+xml">
+<meta name="description" content="One More Can is a youth-run can drive. Bring one more can than you planned to a meetup, hang out with friends, and we deliver everything to the local food bank.">
+<title>One More Can</title>
+<link rel="icon" href="images/can.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -136,7 +136,11 @@
   }
   .brand svg { width: 42px; height: 42px; flex: none; }
   .brand, .btn { white-space: nowrap; }
-  @media (max-width: 480px) { .site-header .btn { padding: .65rem 1rem; font-size: .95rem; } }
+  @media (max-width: 480px) {
+    .site-header .brand { font-size: 1.25rem; gap: .45rem; }
+    .site-header .brand svg { width: 34px; height: 34px; }
+    .site-header .btn { padding: .55rem .85rem; font-size: .85rem; }
+  }
   .nav-links { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
   .nav-links a { text-decoration: none; font-weight: 700; }
   .nav-links a:hover { color: var(--orange); }
@@ -364,9 +368,9 @@
 
 <header class="site-header">
   <div class="wrap nav">
-    <a class="brand" href="#top" aria-label="Two Can home">
-      <svg viewBox="0 0 320 320" aria-hidden="true"><use href="#toucan"></use></svg>
-      Two Can
+    <a class="brand" href="#top" aria-label="One More Can home">
+      <svg viewBox="0 0 320 320" aria-hidden="true"><use href="#mascot"></use></svg>
+      One More Can
     </a>
     <ul class="nav-links">
       <li><a href="#how">How it works</a></li>
@@ -378,34 +382,55 @@
   </div>
 </header>
 
-<!-- Toucan mascot, drawn once and reused -->
+<!-- Mascot and can shapes, drawn once and reused -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <g id="toucan">
-      <path d="M10 290 C 80 270, 200 280, 310 262 L 312 284 C 200 300, 90 292, 12 306 Z" fill="#8A5A2B"/>
-      <path d="M60 282 l -18 -22 M110 276 l 8 -26" stroke="#8A5A2B" stroke-width="8" stroke-linecap="round" fill="none"/>
-      <ellipse cx="60" cy="238" rx="26" ry="14" fill="#1E8F5A"/>
-      <ellipse cx="292" cy="240" rx="22" ry="12" fill="#1E8F5A"/>
-      <path d="M120 250 C 90 260, 70 300, 80 312 L 130 300 Z" fill="#16232E"/>
-      <ellipse cx="150" cy="195" rx="70" ry="86" fill="#16232E"/>
-      <path d="M130 130 C 100 150, 96 220, 122 262 C 150 262, 172 240, 170 200 C 168 160, 154 128, 130 130 Z" fill="#FFF3C4"/>
-      <path d="M126 150 C 112 170, 112 215, 126 244 C 146 240, 158 214, 156 190 C 154 166, 142 148, 126 150 Z" fill="#FFC531"/>
-      <circle cx="150" cy="112" r="50" fill="#16232E"/>
-      <circle cx="170" cy="102" r="17" fill="#2E9BFF"/>
-      <circle cx="170" cy="102" r="11" fill="#FFFFFF"/>
-      <circle cx="172" cy="103" r="6" fill="#16232E"/>
-      <circle cx="175" cy="99" r="2" fill="#FFFFFF"/>
-      <path d="M186 78 C 240 62, 300 78, 312 112 C 310 122, 300 128, 288 130 L 190 138 C 186 120, 184 96, 186 78 Z" fill="#FF7A1A"/>
-      <path d="M186 78 C 240 62, 300 78, 312 112 L 194 106 Z" fill="#FFC531"/>
-      <path d="M266 84 C 292 90, 306 100, 312 112 C 310 122, 300 128, 288 130 L 276 131 C 286 116, 282 98, 266 84 Z" fill="#1E8F5A"/>
-      <path d="M190 138 L 288 130" stroke="#16232E" stroke-width="4" stroke-linecap="round"/>
-      <path d="M118 262 l -6 20 M132 264 l 0 20 M146 262 l 6 20" stroke="#FF7A1A" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <!-- The mascot: a tin can with its lid tipped like a cap, holding up one finger. -->
+    <g id="mascot">
+      <!-- shadow -->
+      <ellipse cx="150" cy="300" rx="90" ry="10" fill="#16232E" opacity=".12"/>
+      <!-- legs and shoes -->
+      <path d="M124 252 L 118 288 M176 252 L 182 288" stroke="#16232E" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <ellipse cx="112" cy="294" rx="22" ry="9" fill="#16232E"/>
+      <ellipse cx="188" cy="294" rx="22" ry="9" fill="#16232E"/>
+      <!-- left arm, resting -->
+      <path d="M84 165 C 56 178, 44 205, 58 226" stroke="#16232E" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <circle cx="60" cy="230" r="14" fill="#FFC531" stroke="#16232E" stroke-width="4"/>
+      <!-- right arm, raised with one finger up -->
+      <path d="M216 150 C 246 140, 262 112, 258 84" stroke="#16232E" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <rect x="250" y="34" width="16" height="44" rx="8" fill="#FFC531" stroke="#16232E" stroke-width="4"/>
+      <circle cx="258" cy="82" r="15" fill="#FFC531" stroke="#16232E" stroke-width="4"/>
+      <!-- can body -->
+      <rect x="80" y="62" width="140" height="192" rx="10" fill="#D9DEE3"/>
+      <rect x="80" y="62" width="14" height="192" fill="#EEF1F4"/>
+      <rect x="206" y="62" width="14" height="192" fill="#B4BCC4"/>
+      <ellipse cx="150" cy="254" rx="70" ry="16" fill="#B4BCC4"/>
+      <!-- label -->
+      <rect x="80" y="96" width="140" height="118" fill="#FF7A1A"/>
+      <rect x="80" y="118" width="140" height="74" fill="#FFF7E1"/>
+      <!-- face -->
+      <circle cx="128" cy="146" r="10" fill="#16232E"/>
+      <circle cx="172" cy="146" r="10" fill="#16232E"/>
+      <circle cx="131" cy="142" r="3.5" fill="#FFFFFF"/>
+      <circle cx="175" cy="142" r="3.5" fill="#FFFFFF"/>
+      <path d="M124 168 Q 150 190 176 168" stroke="#16232E" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <circle cx="108" cy="166" r="7" fill="#FF7A1A" opacity=".45"/>
+      <circle cx="192" cy="166" r="7" fill="#FF7A1A" opacity=".45"/>
+      <!-- top of the can -->
+      <ellipse cx="150" cy="62" rx="70" ry="16" fill="#EEF1F4"/>
+      <ellipse cx="150" cy="62" rx="56" ry="10" fill="#D9DEE3"/>
+      <!-- lid, tipped like a cap -->
+      <g transform="rotate(-16 200 44)">
+        <ellipse cx="200" cy="44" rx="66" ry="15" fill="#F5F7F9" stroke="#16232E" stroke-width="4"/>
+        <ellipse cx="200" cy="44" rx="48" ry="8" fill="#D9DEE3"/>
+      </g>
     </g>
+    <!-- a plain can, for the row next to the mascot -->
     <g id="can">
       <rect x="0" y="6" width="60" height="84" rx="8" fill="#D9DEE3"/>
       <ellipse cx="30" cy="6" rx="30" ry="6" fill="#F2F4F6"/>
       <ellipse cx="30" cy="6" rx="22" ry="4" fill="#BFC7CE"/>
-      <rect x="0" y="22" width="60" height="52" fill="#FF7A1A"/>
+      <rect x="0" y="22" width="60" height="52" fill="#1E8F5A"/>
       <rect x="0" y="34" width="60" height="28" fill="#FFF7E1"/>
       <ellipse cx="30" cy="90" rx="30" ry="6" fill="#B4BCC4"/>
     </g>
@@ -418,19 +443,20 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <span class="eyebrow">A youth-run can drive</span>
-        <h1>One can helps. <span class="pop">Two can feed more.</span></h1>
-        <p class="lead">Bring two cans of food to a Two Can meetup. Hang out, meet people, and we deliver everything to the local food bank that same week.</p>
+        <h1>One more can. <span class="pop">One more meal.</span></h1>
+        <p class="lead">Every extra can you bring becomes a meal for a neighbor who needs one. Bring your cans to a One More Can meetup, hang out with friends, and we deliver everything to the local food bank that same week.</p>
         <div class="hero-actions">
           <a class="btn btn-ink" href="#meetups">Find a meetup</a>
           <a class="btn btn-ghost" href="#how">How it works</a>
         </div>
       </div>
       <div class="mascot">
-        <span class="badge">Bring two!</span>
-        <svg viewBox="0 0 420 330" role="img" aria-label="Two Can's toucan mascot perched on a branch next to two cans of food">
-          <use href="#toucan" x="20" y="0"></use>
-          <use href="#can" x="330" y="180"></use>
-          <use href="#can" x="372" y="200" transform="rotate(8 402 244)"></use>
+        <span class="badge">Got one more?</span>
+        <svg viewBox="0 0 440 330" role="img" aria-label="Tinny, a smiling tin can mascot, holding up one finger next to a row of donated cans">
+          <use href="#can" x="20" y="210"></use>
+          <use href="#can" x="90" y="210"></use>
+          <use href="#can" x="160" y="210" transform="rotate(6 190 254)"></use>
+          <use href="#mascot" x="150" y="0"></use>
         </svg>
       </div>
     </div>
@@ -438,8 +464,8 @@
 
   <div class="stripe" aria-hidden="true">
     <div class="stripe-track">
-      <span>Bring two cans</span><span>Bring a friend</span><span>Hang out</span><span>Feed your neighbors</span>
-      <span>Bring two cans</span><span>Bring a friend</span><span>Hang out</span><span>Feed your neighbors</span>
+      <span>One more can</span><span>One more meal</span><span>One more neighbor fed</span><span>One more friend at the meetup</span>
+      <span>One more can</span><span>One more meal</span><span>One more neighbor fed</span><span>One more friend at the meetup</span>
     </div>
   </div>
 
@@ -448,13 +474,13 @@
       <div class="section-head">
         <span class="eyebrow">How it works</span>
         <h2>Three steps. No sign-up sheet.</h2>
-        <p>Two Can is built for people who want to help but don't want a committee. Show up with cans. That's the whole job.</p>
+        <p>One More Can is built for people who want to help but don't want a committee. Show up with cans. That's the whole job.</p>
       </div>
       <div class="steps">
         <article class="step">
           <span class="num">1</span>
-          <h3>Grab two cans</h3>
-          <p>From your pantry or the store. Soup, beans, tuna, veggies, fruit. Two cans is the ask, more is welcome.</p>
+          <h3>Grab one more</h3>
+          <p>Take a can from your pantry or the store. Then take one more. That extra can is the whole idea, and it adds up fast.</p>
         </article>
         <article class="step">
           <span class="num">2</span>
@@ -483,7 +509,7 @@
           <div class="event-body">
             <h3>Saturday in the park</h3>
             <p class="meta">2:00 to 4:00 PM · Town park pavilion</p>
-            <p class="vibe">Bring two cans and a blanket. Frisbee, playlist on a speaker, lemonade.</p>
+            <p class="vibe">Bring your cans and a blanket. Frisbee, playlist on a speaker, lemonade.</p>
           </div>
         </article>
         <article class="event">
@@ -547,10 +573,10 @@
         <div class="section-head">
           <span class="eyebrow">Start a meetup</span>
           <h2>Host one in your town</h2>
-          <p>If there's no Two Can meetup near you yet, start one. We'll send a starter kit and help you get the word out.</p>
+          <p>If there's no One More Can meetup near you yet, start one. We'll send a starter kit and help you get the word out.</p>
         </div>
         <ul class="kit">
-          <li><span class="dot"></span><span><strong>A printable sign and flyer</strong> with the toucan on it, so people know where to drop cans.</span></li>
+          <li><span class="dot"></span><span><strong>A printable sign and flyer</strong> with Tinny the can on it, so people know where to drop off.</span></li>
           <li><span class="dot"></span><span><strong>A host checklist</strong>: how to pick a spot, what to bring, and how to get the cans to a food bank.</span></li>
           <li><span class="dot"></span><span><strong>A spot on this page</strong> so friends and neighbors can find your meetup.</span></li>
         </ul>
@@ -584,13 +610,13 @@
       <div>
         <div class="section-head">
           <span class="eyebrow">About</span>
-          <h2>Why a toucan?</h2>
+          <h2>Why one more?</h2>
         </div>
-        <p>Two Can was started by Sierra Kimmer with a simple idea: people want to help, and helping should be fun. A lot of young people have a couple of extra cans in the pantry and a free afternoon. Put those together with music and friends, and you get a food drive that feels like a hangout.</p>
-        <p>The name is the ask. Bring two cans. And "two can" do more than one, which is why every meetup is better with a friend along.</p>
-        <p>The toucan is our mascot because, well, it was right there. Also it's a bird with a giant beak that carries things, which is basically the job.</p>
+        <p>One More Can was started by Sierra Kimmer with a simple idea: people want to help, and helping should be fun. Most of us have a couple of extra cans in the pantry and a free afternoon. Put those together with music and friends, and you get a food drive that feels like a hangout.</p>
+        <p>The name is the ask. Whatever you were going to bring, bring one more. A single can of soup, beans, or tuna is a real meal for someone, so every extra can in the bin means one more person eats that week.</p>
+        <p>Our mascot is Tinny, a can with its lid tipped like a cap. Tinny is always holding up one finger, because one more can is one more meal.</p>
       </div>
-      <div class="pun">"One person can bring a can. Two can start something."</div>
+      <div class="pun">Your extra can is someone's next meal.</div>
     </div>
   </section>
 
@@ -599,10 +625,10 @@
 <div class="wrap">
   <footer>
     <a class="brand" href="#top">
-      <svg viewBox="0 0 320 320" aria-hidden="true"><use href="#toucan"></use></svg>
-      Two Can
+      <svg viewBox="0 0 320 320" aria-hidden="true"><use href="#mascot"></use></svg>
+      One More Can
     </a>
-    <p>A nonprofit can drive founded by Sierra Kimmer. Bring two cans, bring a friend.</p>
+    <p>A nonprofit can drive founded by Sierra Kimmer. One more can. One more meal.</p>
   </footer>
 </div>
 

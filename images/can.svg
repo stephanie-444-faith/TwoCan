@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Tinny, the One More Can mascot">
+<g>
+      <!-- shadow -->
+      <ellipse cx="150" cy="300" rx="90" ry="10" fill="#16232E" opacity=".12"/>
+      <!-- legs and shoes -->
+      <path d="M124 252 L 118 288 M176 252 L 182 288" stroke="#16232E" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <ellipse cx="112" cy="294" rx="22" ry="9" fill="#16232E"/>
+      <ellipse cx="188" cy="294" rx="22" ry="9" fill="#16232E"/>
+      <!-- left arm, resting -->
+      <path d="M84 165 C 56 178, 44 205, 58 226" stroke="#16232E" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <circle cx="60" cy="230" r="14" fill="#FFC531" stroke="#16232E" stroke-width="4"/>
+      <!-- right arm, raised with one finger up -->
+      <path d="M216 150 C 246 140, 262 112, 258 84" stroke="#16232E" stroke-width="10" stroke-linecap="round" fill="none"/>
+      <rect x="250" y="34" width="16" height="44" rx="8" fill="#FFC531" stroke="#16232E" stroke-width="4"/>
+      <circle cx="258" cy="82" r="15" fill="#FFC531" stroke="#16232E" stroke-width="4"/>
+      <!-- can body -->
+      <rect x="80" y="62" width="140" height="192" rx="10" fill="#D9DEE3"/>
+      <rect x="80" y="62" width="14" height="192" fill="#EEF1F4"/>
+      <rect x="206" y="62" width="14" height="192" fill="#B4BCC4"/>
+      <ellipse cx="150" cy="254" rx="70" ry="16" fill="#B4BCC4"/>
+      <!-- label -->
+      <rect x="80" y="96" width="140" height="118" fill="#FF7A1A"/>
+      <rect x="80" y="118" width="140" height="74" fill="#FFF7E1"/>
+      <!-- face -->
+      <circle cx="128" cy="146" r="10" fill="#16232E"/>
+      <circle cx="172" cy="146" r="10" fill="#16232E"/>
+      <circle cx="131" cy="142" r="3.5" fill="#FFFFFF"/>
+      <circle cx="175" cy="142" r="3.5" fill="#FFFFFF"/>
+      <path d="M124 168 Q 150 190 176 168" stroke="#16232E" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <circle cx="108" cy="166" r="7" fill="#FF7A1A" opacity=".45"/>
+      <circle cx="192" cy="166" r="7" fill="#FF7A1A" opacity=".45"/>
+      <!-- top of the can -->
+      <ellipse cx="150" cy="62" rx="70" ry="16" fill="#EEF1F4"/>
+      <ellipse cx="150" cy="62" rx="56" ry="10" fill="#D9DEE3"/>
+      <!-- lid, tipped like a cap -->
+      <g transform="rotate(-16 200 44)">
+        <ellipse cx="200" cy="44" rx="66" ry="15" fill="#F5F7F9" stroke="#16232E" stroke-width="4"/>
+        <ellipse cx="200" cy="44" rx="48" ry="8" fill="#D9DEE3"/>
+      </g>
+    </g>
+</svg>

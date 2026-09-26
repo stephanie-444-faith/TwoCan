@@ -1,13 +1,19 @@
-# Two Can
+# One More Can
 
-Website for Two Can, a youth-run nonprofit can drive founded by Sierra Kimmer.
-The idea: bring two cans of food to a meetup, hang out with friends, and the
-cans get delivered to the local food bank. The mascot is a toucan.
+Website for One More Can, a youth-run nonprofit can drive founded by Sierra
+Kimmer. The idea: whatever cans of food you were going to donate, bring one
+more. Drop them off at a meetup, hang out with friends, and the cans get
+delivered to the local food bank.
+
+**Slogan:** One more can. One more meal.
+
+**Mascot:** Tinny, a smiling tin can with its lid tipped like a cap, always
+holding up one finger for "one more."
 
 ## Files
 
 - `index.html` – the whole site (HTML, CSS, and a little JavaScript in one file)
-- `images/toucan.svg` – the toucan mascot, also used as the favicon
+- `images/can.svg` – Tinny the mascot, also used as the favicon
 
 ## Running it
 
@@ -24,4 +30,7 @@ deploy from the `main` branch, root folder).
   not send anywhere yet. Connect it to a form service such as Formspree,
   Netlify Forms, or a Google Form (see the comment at the bottom of
   `index.html`).
-- **Contact**: add an email or social handle to the footer once Two Can has one.
+- **Contact**: add an email or social handle to the footer once One More Can
+  has one.
+- **Repo name**: the GitHub repo is still called TwoCan. Rename it under
+  Settings → General if you want it to match.
