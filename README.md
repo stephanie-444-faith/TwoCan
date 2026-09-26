@@ -19,8 +19,40 @@ holding up one finger for "one more."
 
 Open `index.html` in a browser. There is no build step.
 
-To put it online, turn on GitHub Pages for this repo (Settings → Pages →
-deploy from the `main` branch, root folder).
+## Putting it on onemorecan.com
+
+The site is hosted free with GitHub Pages. The `CNAME` file in this repo
+tells GitHub the site lives at `onemorecan.com`.
+
+1. **Turn on GitHub Pages.** In this repo go to Settings → Pages. Under
+   "Build and deployment," pick "Deploy from a branch," then `main` and
+   `/ (root)`, and save.
+2. **Add DNS records** where the domain was bought (GoDaddy, Namecheap,
+   Squarespace, Cloudflare, etc.). Delete any existing A or AAAA records for
+   the bare domain (`@`) first, then add:
+
+   | Type  | Name  | Value                          |
+   |-------|-------|--------------------------------|
+   | A     | @     | 185.199.108.153                |
+   | A     | @     | 185.199.109.153                |
+   | A     | @     | 185.199.110.153                |
+   | A     | @     | 185.199.111.153                |
+   | AAAA  | @     | 2606:50c0:8000::153            |
+   | AAAA  | @     | 2606:50c0:8001::153            |
+   | AAAA  | @     | 2606:50c0:8002::153            |
+   | AAAA  | @     | 2606:50c0:8003::153            |
+   | CNAME | www   | stephanie-444-faith.github.io  |
+
+3. **Check the domain in GitHub.** Back in Settings → Pages, the custom
+   domain box should show `onemorecan.com`. Wait for the DNS check to pass.
+   This can take anywhere from a few minutes to a day.
+4. **Turn on "Enforce HTTPS"** on the same page once it becomes clickable.
+
+`www.onemorecan.com` will redirect to `onemorecan.com` automatically.
+
+Optional but recommended: verify the domain under your GitHub account
+(Settings → Pages → "Add a domain") so nobody else can claim it for their
+own Pages site.
 
 ## Things to fill in
 
