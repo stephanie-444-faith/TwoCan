@@ -63,6 +63,7 @@
   }
 
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
@@ -324,6 +325,8 @@
   form input:focus, form textarea:focus { border-color: var(--sky); outline: none; }
   form textarea { min-height: 96px; resize: vertical; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-status { color: #C2410C; font-weight: 700; font-size: .95rem; }
+  .btn[disabled] { opacity: .6; cursor: wait; transform: none; }
   .thanks {
     background: var(--leaf-soft);
     color: var(--ink);
@@ -603,6 +606,7 @@
           <textarea id="host-idea" name="idea" placeholder="A Saturday at the skate park, cans plus a pickup game..."></textarea>
         </label>
         <button class="btn btn-orange" type="submit" id="host-submit">Send it</button>
+        <p class="form-status" id="host-status" role="alert" hidden></p>
       </form>
       <div class="thanks" id="host-thanks" hidden>
         <h3>You're on the list.</h3>
@@ -639,24 +643,95 @@
 </div>
 
 <script>
-  // The form does not send anywhere yet. Hook it up to a form service
-  // (Formspree, Netlify Forms, Google Forms) or an email endpoint when ready.
+  // ---------------------------------------------------------------
+  // GOOGLE FORM SETUP
+  // Paste your Google Form's pre-filled link between the quotes below.
+  // When making the pre-filled link, type these exact words in the
+  // matching questions:  NAME   EMAIL   TOWN   IDEA
+  // Full steps are in README.md under "Connecting the Google Form".
+  // ---------------------------------------------------------------
+  var GOOGLE_FORM_PREFILLED_LINK = '';
+
   (function () {
     var form = document.getElementById('host-form');
     var thanks = document.getElementById('host-thanks');
+    var status = document.getElementById('host-status');
+    var button = document.getElementById('host-submit');
+
+    // Map each placeholder word in the pre-filled link to the matching field on this page.
+    var FIELDS = { NAME: 'host-name', EMAIL: 'host-email', TOWN: 'host-place', IDEA: 'host-idea' };
+
+    // Turn the pre-filled link into the address Google accepts answers at,
+    // plus the "entry.123..." code for each question.
+    function readGoogleForm(link) {
+      if (!link) return null;
+      try {
+        var url = new URL(link);
+        var entries = {};
+        url.searchParams.forEach(function (value, key) {
+          var word = value.trim().toUpperCase();
+          if (key.indexOf('entry.') === 0 && FIELDS[word]) entries[FIELDS[word]] = key;
+        });
+        if (!entries['host-name'] || !entries['host-email'] || !entries['host-place']) return null;
+        return {
+          action: url.origin + url.pathname.replace(/\/viewform$/, '/formResponse'),
+          entries: entries
+        };
+      } catch (err) {
+        return null;
+      }
+    }
+
+    var google = readGoogleForm(GOOGLE_FORM_PREFILLED_LINK);
+
+    function showStatus(message) {
+      status.textContent = message;
+      status.hidden = !message;
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var required = form.querySelectorAll('[required]');
+      showStatus('');
+
       var ok = true;
-      required.forEach(function (el) {
+      form.querySelectorAll('[required]').forEach(function (el) {
         var valid = el.value.trim() !== '' && (el.type !== 'email' || el.checkValidity());
         el.style.borderColor = valid ? '' : '#FF7A1A';
         if (!valid) ok = false;
       });
-      if (!ok) return;
-      form.hidden = true;
-      thanks.hidden = false;
-      thanks.scrollIntoView({ block: 'center' });
+      if (!ok) {
+        showStatus('Please fill in your name, a working email, and your town or school.');
+        return;
+      }
+
+      if (!google) {
+        showStatus('Sign-ups aren\'t open quite yet. Please check back soon.');
+        if (window.console) console.warn('One More Can: GOOGLE_FORM_PREFILLED_LINK is missing or not set up correctly.');
+        return;
+      }
+
+      var body = new URLSearchParams();
+      Object.keys(google.entries).forEach(function (id) {
+        body.append(google.entries[id], document.getElementById(id).value.trim());
+      });
+
+      button.disabled = true;
+      button.textContent = 'Sending...';
+
+      // Google doesn't let other sites read its reply, so a finished request is treated as sent.
+      fetch(google.action, { method: 'POST', mode: 'no-cors', body: body })
+        .then(function () {
+          form.hidden = true;
+          thanks.hidden = false;
+          thanks.scrollIntoView({ block: 'center' });
+        })
+        .catch(function () {
+          showStatus('That didn\'t go through. Check your internet connection and try again.');
+        })
+        .then(function () {
+          button.disabled = false;
+          button.textContent = 'Send it';
+        });
     });
   })();
 </script>

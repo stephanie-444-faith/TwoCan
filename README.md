@@ -54,14 +54,56 @@ Optional but recommended: verify the domain under your GitHub account
 (Settings → Pages → "Add a domain") so nobody else can claim it for their
 own Pages site.
 
+## Connecting the Google Form
+
+The "Start a meetup" form on the site sends each sign-up into a Google Form,
+so answers land in the form's Responses tab (and a Google Sheet if you link
+one). Until the link below is filled in, the form tells visitors sign-ups
+aren't open yet.
+
+1. **Make the Google Form.** Go to forms.google.com and create a blank form
+   called "One More Can hosts." Add four **Short answer** or **Paragraph**
+   questions, in any order:
+   - Your name (required)
+   - Email (required)
+   - Town or school (required)
+   - Your idea (optional, Paragraph)
+2. **Check two settings** under the Settings tab, or submissions from the
+   website will be silently dropped:
+   - Responses → **Collect email addresses: Do not collect**. The Email
+     question above collects it instead.
+   - Responses → **Limit to 1 response: off**, and "Restrict to users in
+     your organization" off if you see it.
+3. **Get the pre-filled link.** Click the ⋮ menu at the top right → **Get
+   pre-filled link**. Type these exact words into the matching questions:
+
+   | Question        | Type this |
+   |-----------------|-----------|
+   | Your name       | NAME      |
+   | Email           | EMAIL     |
+   | Town or school  | TOWN      |
+   | Your idea       | IDEA      |
+
+   Click **Get link**, then **Copy link**.
+4. **Paste it into the site.** In `index.html`, near the bottom, find this
+   line and paste the link between the quotes:
+
+   ```js
+   var GOOGLE_FORM_PREFILLED_LINK = '';
+   ```
+
+   Commit the change. You can do this right on github.com: open
+   `index.html`, click the pencil icon, edit, and commit.
+5. **Test it.** Open the live site, send a test sign-up, and make sure it
+   shows up in the Google Form's Responses tab. Then delete the test response.
+
+Tip: in the Responses tab, click the green Sheets icon to send sign-ups to a
+spreadsheet, and turn on email notifications from the ⋮ menu there.
+
 ## Things to fill in
 
 - **Meetups**: the three events on the page are samples. Replace them with real
   dates, times, and places in the `#meetups` section.
-- **Host form**: the "Start a meetup" form shows a thank-you message but does
-  not send anywhere yet. Connect it to a form service such as Formspree,
-  Netlify Forms, or a Google Form (see the comment at the bottom of
-  `index.html`).
 - **Contact**: add an email or social handle to the footer once One More Can
   has one.
 - **Repo name**: the GitHub repo is still called TwoCan. Rename it under
